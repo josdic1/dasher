@@ -7,7 +7,7 @@
     "start": "node server.js",
     "dev": "vite",
     "build": "vite build",
-    "serve": "json-server --watch db.json --port 3000"
+    "serve": "json-server --host 0.0.0.0 --port 10000 --watch db.json"
   },
   "devDependencies": {
     "vite": "^6.2.0",
