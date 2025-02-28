@@ -377,7 +377,7 @@ const init = () => {
 
   async function handleNewLink(newObj) {
     try {
-      const r = await fetch(`BASE_URL`, {
+      const r = await fetch(BASE_URL, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -394,7 +394,7 @@ const init = () => {
 
   async function handleDelete(obj) {
     try {
-      const r = await fetch(`BASE_URL/${obj.id}`, {
+      const r = await fetch(`${BASE_URL}/${obj.id}`, {
         method: 'DELETE'
       })
       if (!r.ok) {
@@ -406,7 +406,7 @@ const init = () => {
 
   async function handleUpdatedLink(updatedObj) {
     try {
-      const r = await fetch(`BASE_URL/${updatedObj.id}`, {
+      const r = await fetch(`${BASE_URL}/${updatedObj.id}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json'
