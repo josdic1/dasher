@@ -10,8 +10,7 @@ const init = () => {
   const list = document.getElementById('list')
 
   //stateful variables
-  const BASE_URL = "https://dasher.onrender.com/links";
-  fetch(BASE_URL)
+
 
   let inEditMode = false
 
@@ -39,7 +38,7 @@ const init = () => {
     type: 'all',
     paid: 'all'
   }
-
+  const BASE_URL = "https://dasher.onrender.com/links";
   //initial fetch
   fetchLinks()
 
@@ -362,7 +361,7 @@ const init = () => {
 
   async function fetchLinks() {
     try {
-      const r = await fetch(`BASE_URL`)
+      const r = await fetch(BASE_URL)
       if (!r.ok) {
         throw new Error('GET: bad request')
       }

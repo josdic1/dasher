@@ -4,10 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "start": "node server.js",
+    "start": "json-server --host 0.0.0.0 --port $PORT --watch db.json",
     "dev": "vite",
-    "build": "vite build",
-    "serve": "json-server --host 0.0.0.0 --port $PORT --watch db.json"
+    "build": "vite build"
   },
   "devDependencies": {
     "vite": "^6.2.0",
