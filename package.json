@@ -4,9 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "start": "node server.js",
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "serve": "json-server --watch db.json --port 3000"
   },
   "devDependencies": {
     "vite": "^6.2.0"
@@ -14,6 +15,7 @@
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
+    "json-server": "^1.0.0-beta.3",
     "uuid": "^11.1.0"
   }
 }
