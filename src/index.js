@@ -45,50 +45,54 @@ const init = () => {
   //render header
 
 
-  console.log("App is running on Vercel!");
+
 
 
   //render form
   function renderForm() {
-    const formHtml =
-      `<div class="card">
-  <label for="inputTitle">Title</label>
-  <input type="text" id="inputTitle" class="form-input" name="title" placeholder="Website name goes here...">
+    // Select the existing form inside <details>
+    const formContainer = document.querySelector("#form");
 
-  <label for="inputUrl">URL</label>
-  <input type="url" id="inputUrl" class="form-input" name="url" placeholder="URL goes here...">
+    // Ensure the form is cleared first
+    formContainer.innerHTML = "";
 
-  <label for="inputType">Type</label>
-  <select id="inputType" class="form-input" name="type">
-    <option value="all" selected disabled>Choose type...</option>
-    <option value="code">Code</option>
-    <option value="music">Music</option>
-  </select>
+    // Add form elements inside it
+    formContainer.innerHTML = `
+      <div class="card">
+        <label for="inputTitle">Title</label>
+        <input type="text" id="inputTitle" class="form-input" name="title" placeholder="Website name goes here...">
 
-  <label for="inputDescription">Description</label>
-  <textarea id="inputDescription" class="form-input" name="description" placeholder="10 words max..."></textarea>
+        <label for="inputUrl">URL</label>
+        <input type="url" id="inputUrl" class="form-input" name="url" placeholder="URL goes here...">
 
-  <label for="inputPaid" class="form-input-checkbox-label">Paid?</label>
-  <input type="checkbox" id="inputPaid" class="form-input" name="paid">
+        <label for="inputType">Type</label>
+        <select id="inputType" class="form-input" name="type">
+          <option value="all" selected disabled>Choose type...</option>
+          <option value="code">Code</option>
+          <option value="music">Music</option>
+        </select>
 
-  <div style="margin-top: 10px;">
-    <button type="submit" id="buttonSubmit" class="primary-button">Submit</button>
-    <button type="button" id="buttonClear" class="danger-button">Clear Form</button>
-  </div>
-</div>`
+        <div class="form-checkbox-container">
+          <label for="inputPaid">Paid?</label>
+          <input type="checkbox" id="inputPaid" class="form-input" name="paid">
+        </div>
 
+        <div style="margin-top: 10px;">
+          <button type="submit" id="buttonSubmit" class="primary-button">Submit</button>
+          <button type="button" id="buttonClear" class="danger-button">Clear Form</button>
+        </div>
+      </div>
+    `;
 
-    form.innerHTML = formHtml
-
+    // Attach event listeners
     document.querySelectorAll('.form-input').forEach(input => {
-      input.addEventListener('input', handleFormInput)
-    })
+      input.addEventListener('input', handleFormInput);
+    });
 
-    document.getElementById('buttonSubmit').addEventListener('click', handleSubmitClick)
-
-    document.getElementById('buttonClear').addEventListener('click', handleClearClick)
-
+    document.getElementById('buttonSubmit').addEventListener('click', handleSubmitClick);
+    document.getElementById('buttonClear').addEventListener('click', handleClearClick);
   }
+
 
   // form handler fucntions
   function handleFormInput(e) {
