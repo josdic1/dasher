@@ -10,6 +10,8 @@ const init = () => {
   const list = document.getElementById('list')
 
   //stateful variables
+  const BASE_URL = "https://dasher.onrender.com/links";
+  fetch(BASE_URL)
 
   let inEditMode = false
 
@@ -360,7 +362,7 @@ const init = () => {
 
   async function fetchLinks() {
     try {
-      const r = await fetch(`http://localhost:3000/links`)
+      const r = await fetch(`BASE_URL`)
       if (!r.ok) {
         throw new Error('GET: bad request')
       }
@@ -375,7 +377,7 @@ const init = () => {
 
   async function handleNewLink(newObj) {
     try {
-      const r = await fetch(`http://localhost:3000/links`, {
+      const r = await fetch(`BASE_URL`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -392,7 +394,7 @@ const init = () => {
 
   async function handleDelete(obj) {
     try {
-      const r = await fetch(`http://localhost:3000/links/${obj.id}`, {
+      const r = await fetch(`BASE_URL/${obj.id}`, {
         method: 'DELETE'
       })
       if (!r.ok) {
@@ -404,7 +406,7 @@ const init = () => {
 
   async function handleUpdatedLink(updatedObj) {
     try {
-      const r = await fetch(`http://localhost:3000/links/${updatedObj.id}`, {
+      const r = await fetch(`BASE_URL/${updatedObj.id}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json'
