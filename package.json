@@ -8,9 +8,9 @@
     "build": "vite build"
   },
   "dependencies": {
+    "json-server": "^0.17.0",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
-    "json-server": "^1.0.0-beta.3",
     "uuid": "^11.1.0"
   },
   "devDependencies": {
